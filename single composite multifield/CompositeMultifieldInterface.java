@@ -1,7 +1,4 @@
-package com.adobe.ase.aem.training.core.models;
-
 public interface CompositeMultifieldInterface {
 	public String getName();
-	public String getLocation();
+	// Add other methods for other fields and map values and implement in impl class
 }
-
