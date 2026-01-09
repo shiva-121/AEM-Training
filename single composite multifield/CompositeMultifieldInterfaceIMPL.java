@@ -1,5 +1,5 @@
 @Model(adaptables = {SlingHttpServletRequest.class, Resource.class},
-adapters = {CompositeMultifieldInterfaceIMPL.class},
+adapters = {CompositeMultifieldInterface.class},
 defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
 	
 public class CompositeMultifieldInterfaceIMPL implements CompositeMultifieldInterface{
@@ -18,4 +18,5 @@ public class CompositeMultifieldInterfaceIMPL implements CompositeMultifieldInte
 	}
 
 }
+
 
