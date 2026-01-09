@@ -15,6 +15,7 @@ import com.adobe.cq.export.json.ComponentExporter;
 
 @Model(adaptables = {SlingHttpServletRequest.class, Resource.class},
 adapters = {Recipe.class, ComponentExporter.class},
+defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
 resourceType = "/apps/ase/components/sample/recipe")
 public class RecipeImpl implements Recipe{
 	
@@ -36,3 +37,4 @@ public class RecipeImpl implements Recipe{
 
 	
 }
+
