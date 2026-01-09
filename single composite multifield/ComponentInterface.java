@@ -1,7 +1,11 @@
 package com.adobe.ase.aem.training.core.models;
 
-public interface AddUniversity {
-	public String getName();
-	public String getLocation();
-	public String getType();
+import java.util.List;
+
+import com.adobe.cq.wcm.core.components.models.Component;
+
+public interface ComponentInterface extends Component{
+	public List<CompositeMultifieldInterface> getCompositeMultified();
 }
+
+
