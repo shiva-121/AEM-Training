@@ -1,48 +1,32 @@
 package com.adobe.ase.aem.training.core.models.impl;
 
+import java.util.List;
+
+import javax.annotation.Resource;
+
 import org.apache.sling.api.SlingHttpServletRequest;
-import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.DefaultInjectionStrategy;
 import org.apache.sling.models.annotations.Model;
-import org.apache.sling.models.annotations.injectorspecific.Self;
-import org.apache.sling.models.annotations.injectorspecific.SlingObject;
-import org.apache.sling.models.annotations.injectorspecific.ValueMapValue;
+import org.apache.sling.models.annotations.injectorspecific.ChildResource;
 
-import com.adobe.ase.aem.training.core.models.AddUniversity;
+import com.adobe.ase.aem.training.core.models.CompositeMultifieldInterface;
+import com.adobe.ase.aem.training.core.models.ComponentInterface;
+import com.adobe.cq.export.json.ComponentExporter;
+
 @Model(adaptables = {SlingHttpServletRequest.class, Resource.class},
-adapters = {AddUniversity.class},
-defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL)
-public class AddUniversityImpl implements AddUniversity{
-	@SlingObject
-	Resource resource;
+adapters = {ComponentInterface.class, ComponentExporter.class},
+defaultInjectionStrategy = DefaultInjectionStrategy.OPTIONAL,
+resourceType = "/apps/ase/components/path-to-component")
 	
-	@Self
-	SlingHttpServletRequest request;
+public class ComponentInterfaceIMPL implements ComponentInterface{
 	
-	@ValueMapValue
-	public String name;
-	@ValueMapValue
-	public String location;
-	@ValueMapValue
-	public String type;
+	@ChildResource(name="fieldName")
+	public List<CompositeMultifieldInterface> fieldName;
 
 	@Override
-	public String getName() {
+	public List<CompositeMultifieldInterface> getCompositeMultifield() {
 		// TODO Auto-generated method stub
-		return name;
+		return fieldName;
 	}
-
-	@Override
-	public String getLocation() {
-		// TODO Auto-generated method stub
-		return location;
-	}
-
-	@Override
-	public String getType() {
-		// TODO Auto-generated method stub
-		return type;
-	}
-
 
 }
