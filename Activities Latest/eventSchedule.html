@@ -1,0 +1,42 @@
+<!--This is sample, similary can be made for others-->
+<h2>Event Details</h2>
+
+<sly data-sly-use.obj="com.adobe.ase.aem.training.core.models.EventSchedule">
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Event Name</th>
+            <th>Event Date</th>
+            <th>Event Venue</th>
+            <th>Session</th>
+        </tr>
+    </thead>
+    <tbody data-sly-list.event="${obj.event}">
+        <tr>
+            <td>${event.name}</td>
+            <td>${"dd-MM-yyyy" @ format = event.date}</td>
+            <td>${event.venue}</td>
+            <td>
+                <table border="1">
+                    <thead>
+                        <tr>
+                            <th>Session Title</th>
+                            <th>Session Speaker</th>
+                            <th>Start Time</th>
+                            <th>End Time</th>
+                        </tr>
+                    </thead>
+                    <tbody data-sly-list.session="${event.session}">
+                        <tr>
+                            <td>${session.title}</td>
+                            <td>${session.speaker}</td>
+                            <td>${"HH:mm" @ format = session.starttime}</td>
+                            <td>${"HH:mm" @ format = session.endtime}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
